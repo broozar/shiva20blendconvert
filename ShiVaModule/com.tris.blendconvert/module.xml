@@ -1,0 +1,15 @@
+<module name="BlendSuite2" icon="Blender ImporterIcon" >
+
+    <!-- INFO -->
+    <author name="Felix Caffier" email="support@shiva-engine.com" website="trisymphony.com"/>
+    <description text="Blender 3D file converter (.blend) to DAE/FBX."/>
+
+    <!-- COMMON -->
+    <depend  module="com.shiva.editor.common" />
+    <include file="/com.shiva.editor.common/guiexAPI.xml"/>
+
+    <!-- INCLUDES -->
+    <include file="resources/resources.xml"/>
+    <include file="views/mainView/mainView.xml" />   
+
+</module>

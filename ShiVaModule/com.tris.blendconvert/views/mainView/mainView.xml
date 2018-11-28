@@ -1,0 +1,122 @@
+<!-- BLENDCONVERT - November 2018 - Felix Caffier -->
+
+<moduleView id="MainView">
+    <boxLayout direction="vertical" spacing="0">
+
+        <!-- TOOLBAR -->
+        <window hSizePolicy="expanding" vSizePolicy="fixed" fixedHeight="26" borderStyle="all" backgroundStyle="plain">
+            <boxLayout direction="horizontal" spacing="0">
+                <window hSizePolicy="expanding">
+                    <boxLayout direction="horizontal" spacing="4" marginLeft="8" >
+
+                        <pushButton id="blend.toolbar.run" icon="Build"      tooltip="Run import"    drawFocus="false" vSizePolicy="fixed" fixedHeight="20" backgroundStyle="plain"  />
+
+                        <boxLayoutItem type="stretch" />
+                    </boxLayout>
+                </window>
+
+            </boxLayout>
+        </window>
+
+        <!-- Blender editor path -->
+        <collapseContainer id="blend.section.blender" text="Blender settings" collapsed="false" hSizePolicy="expanding" vSizePolicy="fixed">
+            <gridLayout marginLeft="20" marginTop="5" marginRight="10" marginBottom="15" verticalSpacing="5" horizontalSpacing="15" columnMinimumWidth="1:120">
+                <gridLayoutItem row="1" column="1"  columnSpan="1"  ><label         text="Blender Installation (Folder/.app):"   textAlignment="left|vCenter"/></gridLayoutItem>
+                <gridLayoutItem row="1" column="2"  columnSpan="20" ><fileBox       id="blend.blender.path" type="openDirectory" icon="FolderOpen" iconAlignment="right" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+
+                <gridLayoutItem row="2" column="1"  columnSpan="1"  ><label          text="FBX Pipeline instead of DAE:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="2" column="2"  columnSpan="20" ><checkBox       id="blend.blender.fbx" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+            </gridLayout>
+        </collapseContainer>
+
+        <!-- 3D FILE INPUT -->
+        <collapseContainer id="blend.section.input" text="Input Files" collapsed="false" hSizePolicy="expanding" vSizePolicy="fixed">
+            <gridLayout marginLeft="3" marginTop="5" marginRight="10" marginBottom="15" verticalSpacing="5" horizontalSpacing="15" columnMinimumWidth="1:137">
+
+                <gridLayoutItem row="1" column="1"  columnSpan="21" rowSpan="10" >
+                    <window id="blend.input.resource" marginLeft="17" >
+                        <boxLayout direction="vertical" spacing="0" >
+                                <window hSizePolicy="expanding" vSizePolicy="fixed" fixedHeight="26">
+                                    <boxLayout direction="horizontal" spacing="0">
+                                        <window>
+                                            <boxLayout direction="horizontal" spacing="0">
+
+                                                <pushButton id="blend.input.resource.add"       icon="Add"     vSizePolicy="fixed" hSizePolicy="fixed" fixedHeight="20" fixedWidth="20" backgroundStyle="alternate" />
+                                                <pushButton id="blend.input.resource.remove"    icon="Remove"  vSizePolicy="fixed" hSizePolicy="fixed" fixedHeight="20" fixedWidth="20" backgroundStyle="alternate" />
+                                                <pushButton id="blend.input.resource.removeAll" icon="Destroy" vSizePolicy="fixed" hSizePolicy="fixed" fixedHeight="20" fixedWidth="20" backgroundStyle="alternate" />
+
+                                                <boxLayoutItem type="stretch"/>
+
+                                            </boxLayout>
+                                        </window>
+                                    </boxLayout>
+                                </window>
+                                <tree id="blend.input.resource.tree" vSizePolicy="fixed" indentation="20" fixedHeight="200" rootIsDecorated="false" headers="false"  filter="true" fixedRowHeight="20" iconSize="16" borderStyle="none" margins="0" acceptDrops="true" >
+                                <column position="1" headerText="Name" sizePolicy="stretch"  fileDisplay="name"/>
+                                </tree>
+                        </boxLayout>
+                    </window>
+                </gridLayoutItem>
+
+            </gridLayout>
+        </collapseContainer>
+
+        <!-- OUTPUT -->
+        <collapseContainer id="blend.section.output" text="Output" collapsed="false" hSizePolicy="expanding" vSizePolicy="fixed">
+            <gridLayout marginLeft="20" marginTop="5" marginRight="10" marginBottom="15" verticalSpacing="5" horizontalSpacing="15" columnMinimumWidth="1:120">
+                <!-- FOLDER PATH -->
+                <gridLayoutItem row="1" column="1"  columnSpan="1"  ><label         text="Output Folder:"   textAlignment="left|vCenter"/></gridLayoutItem>
+                <gridLayoutItem row="1" column="2"  columnSpan="20" ><fileBox       id="blend.output.folder.path" type="openDirectory" icon="FolderOpen" iconAlignment="right" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+                <!-- CLEAR FOLDER -->
+                <gridLayoutItem row="2" column="1"  columnSpan="1"  ><label          text="Clear folder before converting:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="2" column="2"  columnSpan="20" ><checkBox       id="blend.output.folder.clear" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+            </gridLayout>
+        </collapseContainer>
+
+        <!-- IMPORT SETTINGS -->
+        <collapseContainer id="blend.section.settings.import" text="FBX settings" collapsed="false" hSizePolicy="expanding" vSizePolicy="fixed">
+            <gridLayout marginLeft="20" marginTop="5" marginRight="10" marginBottom="15" verticalSpacing="5" horizontalSpacing="15" columnMinimumWidth="1:120">
+
+<!--                 <gridLayoutItem row="1" column="1"  columnSpan="1"  ><label          text="Material:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="1" column="2"  columnSpan="20" ><checkBox       id="blend.import.material" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem> -->
+
+                <gridLayoutItem row="1" column="1"  columnSpan="1"  ><label          text="Embed Textures:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="1" column="2"  columnSpan="20" ><checkBox       id="blend.import.texture" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+
+<!--                 <gridLayoutItem row="3" column="1"  columnSpan="1"  ><label          text="Linked Resources:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="3" column="2"  columnSpan="20" ><checkBox       id="blend.import.link" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+
+                <gridLayoutItem row="4" column="1"  columnSpan="1"  ><label          text="Shape:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="4" column="2"  columnSpan="20" ><checkBox       id="blend.import.shape" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem> -->
+
+                <gridLayoutItem row="2" column="1"  columnSpan="1"  ><label          text="Pack Animation:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="2" column="2"  columnSpan="20" ><checkBox       id="blend.import.animation" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+
+                <gridLayoutItem row="3" column="1"  columnSpan="1"  ><label          text="Bake Space:"  textAlignment="left|vCenter" /></gridLayoutItem>
+                <gridLayoutItem row="3" column="2"  columnSpan="20" ><checkBox       id="blend.import.global" vSizePolicy="fixed" hSizePolicy="expanding" fixedHeight="20" /></gridLayoutItem>
+
+            </gridLayout>
+        </collapseContainer>
+
+        <!-- spacer below -->
+        <boxLayoutItem type="stretch" />
+
+    </boxLayout>
+
+    <!-- INCLUDES -->
+    <include file="mainView.lua" />
+    <include file="mainViewMenu.xml" />
+    <!--<include file="mainViewWorking.xml" /> -->
+
+    <!-- CONNECTS -->
+    <connect sender="MainView"                  event="kEventModuleViewInitialized"             handler="onMainViewInit" />
+    <connect sender="MainView"                  event="kEventModuleViewDestroyed"               handler="onMainViewDestroy" />
+
+    <connect sender="blend.toolbar.run"  event="kEventButtonClicked"         handler="onRunImport" />
+
+    <connect sender="blend.input.resource.add"              event="kEventButtonClicked"                handler="onInputAdd" />
+    <connect sender="blend.input.resource.remove"           event="kEventButtonClicked"                handler="onInputRemove" />
+    <connect sender="blend.input.resource.removeAll"        event="kEventButtonClicked"                handler="onInputRemoveAll" />
+
+</moduleView>
+

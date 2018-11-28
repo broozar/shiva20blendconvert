@@ -1,0 +1,42 @@
+<!-- BLENDER icon by xenatt
+https://www.deviantart.com/xenatt
+
+used under CC-NC-ND from
+https://www.iconfinder.com/icons/173798/blender_icon
+ -->
+
+<resources>
+
+    <icon id="Blender ImporterIcon">
+        <pixmap mode="normal"       state="off"   file="blendconvert_16.png" />
+        <pixmap mode="normal"       state="on"    file="blendconvert_16hi.png" />
+        <pixmap mode="selected"     state="off"   file="blendconvert_16hi.png" />
+        <pixmap mode="selected"     state="on"    file="blendconvert_16hi.png" />
+        <pixmap mode="active"       state="off"   file="blendconvert_16.png" />
+        <pixmap mode="active"       state="on"    file="blendconvert_16hi.png" />
+        <pixmap mode="disabled"     state="off"   file="blendconvert_16.png" />
+        <pixmap mode="disabled"     state="on"    file="blendconvert_16.png" />
+
+        <pixmap mode="normal"       state="off"   file="blendconvert_32.png" />
+        <pixmap mode="normal"       state="on"    file="blendconvert_32hi.png" />
+        <pixmap mode="selected"     state="off"   file="blendconvert_32hi.png" />
+        <pixmap mode="selected"     state="on"    file="blendconvert_32hi.png" />
+        <pixmap mode="active"       state="off"   file="blendconvert_32.png" />
+        <pixmap mode="active"       state="on"    file="blendconvert_32hi.png" />
+        <pixmap mode="disabled"     state="off"   file="blendconvert_32.png" />
+        <pixmap mode="disabled"     state="on"    file="blendconvert_32.png" />
+
+        <pixmap mode="normal"       state="off"   file="blendconvert_64.png" />
+        <pixmap mode="normal"       state="on"    file="blendconvert_64hi.png" />
+        <pixmap mode="selected"     state="off"   file="blendconvert_64hi.png" />
+        <pixmap mode="selected"     state="on"    file="blendconvert_64hi.png" />
+        <pixmap mode="active"       state="off"   file="blendconvert_64.png" />
+        <pixmap mode="active"       state="on"    file="blendconvert_64hi.png" />
+        <pixmap mode="disabled"     state="off"   file="blendconvert_64.png" />
+        <pixmap mode="disabled"     state="on"    file="blendconvert_64.png" />
+    </icon>
+     
+</resources>
+
+
+
