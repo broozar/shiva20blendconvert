@@ -5,6 +5,17 @@ import sys
 
 sExportDirectory = 0
 
+# -----------------------------------
+# tools
+
+def dequote (sIn):
+	sIn.replace('"', '')
+	sIn.replace("'", "")
+	return sIn
+
+# -----------------------------------
+# arg handling
+	
 argv = sys.argv
 
 if (argv != None) :
@@ -22,8 +33,12 @@ if (argv != None) :
 else :
     print ("no arguments at all!" )
 
+# just an emtpy line
 print (" ")
 
+
+# -----------------------------------
+# file name synthesis
 
 #custom filename prefix
 sCustomPrefix = ""
@@ -45,11 +60,14 @@ if (sExportDirectory == "0" or sExportDirectory == 0) :
     sDAEFilePath = sExportDirectory + "/" + sCustomPrefix + sStripBlendFileName + sCustomSuffix + ".dae"
 else :
     print ("Requested export directory is: " + sExportDirectory)
-    sExportDirectory = sExportDirectory.replace('"', '')
-    sExportDirectory = sExportDirectory.replace("'", '')
+    sExportDirectory = dequote(sExportDirectory)
     sDAEFilePath = sExportDirectory + sCustomPrefix + sStripBlendFileName + sCustomSuffix + ".dae"
 
 print ("DAE exporting to: " + sDAEFilePath)
+
+
+# -----------------------------------
+# DAE export
 
 ##DAE EXPORT ARGUMENTS
 sFilepath=sDAEFilePath
@@ -75,7 +93,6 @@ nExportTransformationType=0
 sExportTransformationTypeSelection='matrix'
 bOpenSim=False
 
-
 #get each tagged object
 scene = bpy.context.scene
 sObjectName = ""
@@ -98,5 +115,4 @@ if (oSelect != None) :
     print ("Exported DAE.")
 else :
     print ("Did not find object set for ShiVa.")
-
 

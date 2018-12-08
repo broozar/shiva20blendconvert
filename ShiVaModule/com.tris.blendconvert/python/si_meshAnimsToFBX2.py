@@ -1,6 +1,5 @@
 import bpy  
 import os
-import subprocess
 import sys
 
 
@@ -11,6 +10,14 @@ nExportAnims = 0
 
 nFBXTexture = 0
 nFBXGlobal = 0
+
+# -----------------------------------
+# tools
+
+def dequote (sIn):
+	sIn.replace('"', '')
+	sIn.replace("'", "")
+	return sIn
 
 # -----------------------------------
 # arg handling
@@ -30,18 +37,18 @@ if (argv != None) :
         #anim handling
         if (argv[1] != None):
             if (argv[1] != ""):
-                nExportAnims = argv[1]
+                nExportAnims = int(argv[1])
                 print ("found nExportAnims export arg: " + argv[1])
 
         #texture handling
         if (argv[2] != None):
             if (argv[2] != ""):
-                nFBXTexture = argv[2]
+                nFBXTexture = int(argv[2])
 				
         #space baking
         if (argv[3] != None):
             if (argv[3] != ""):
-                nFBXGlobal = argv[3]
+                nFBXGlobal = int(argv[3])
 				
     else :
         print ("")
@@ -57,7 +64,6 @@ print (" ")
 # animation switch - for the future
 
 #anim handling - only 0 and 2 are valid ATM
-nExportAnims = int(nExportAnims)
 if (nExportAnims == 0) :
     bExportAnims = False
     bPackAnims = False
@@ -85,8 +91,7 @@ sFBXFilePath = ""
 # sAnimFilePath = ""
 
 print ("Requested export directory is: " + sExportDirectory)
-sExportDirectory = sExportDirectory.replace('"', '')
-sExportDirectory = sExportDirectory.replace("'", '')
+sExportDirectory = dequote(sExportDirectory)
 sFBXFullPath = sExportDirectory + sStripBlendFileName + ".fbx"
 # sAnimFilePath = sExportDirectory + sCustomPrefix + sStripBlendFileName + sCustomSuffix
 

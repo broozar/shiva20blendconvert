@@ -226,7 +226,7 @@ function onExportFBX ( )
 	local aPyScript = sPyFBXPath
 	local aOutPath = sOutputDir
 	local aAnim = 0 -- ANIM 0 none; 2 pack in FBX
-	if ( bImpAni ) then aAnim = 2 end
+	if ( bImpAni == 1 ) then aAnim = 2 end
 	
 	-- iterate tree
 	local hTree = gui.getComponent ( "blend.input.resource.tree" )
